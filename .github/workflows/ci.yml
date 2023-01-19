@@ -63,15 +63,15 @@ jobs:
           scope: ${{ secrets.ORG_ID}}
           working-directory: ./
 
-      - name: Update deployment status
-        uses: bobheadxi/deployments@v1
-        if: always()
-        with:
-          step: finish
-          token: ${{ secrets.GITHUB_TOKEN }}
-          status: ${{ job.status }}
-          env: ${{ steps.deployment.outputs.env }}
-          deployment_id: ${{ steps.deployment.outputs.deployment_id }}
+      # - name: Update deployment status
+      #   uses: bobheadxi/deployments@v1
+      #   if: always()
+      #   with:
+      #     step: finish
+      #     token: ${{ secrets.GITHUB_TOKEN }}
+      #     status: ${{ job.status }}
+      #     env: ${{ steps.deployment.outputs.env }}
+      #     deployment_id: ${{ steps.deployment.outputs.deployment_id }}
 
   release-project:
     name: Release project to GitHub

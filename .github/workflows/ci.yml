@@ -91,12 +91,11 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         # Docs: https://github.com/marketplace/actions/next-semvers
-
-      # - name: Get next major version
-      #   id: semver
-      #   uses: "WyriHaximus/github-action-next-semvers@v1"
-      #   with:
-      #     version: ${{ steps.previoustag.outputs.tag }}
+      - name: Get next major version
+        id: semver
+        uses: "WyriHaximus/github-action-next-semvers@v1"
+        with:
+          version: ${{ steps.previoustag.outputs.tag }}
 
       - name: Create release
         id: create_release_id

@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [16.x, 18.x]
+        node-version: [18.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
     steps:
       - name: Checkout
@@ -62,7 +62,7 @@ jobs:
           vercel-org-id: ${{ secrets.ORG_ID}} #Required
           vercel-project-id: ${{ secrets.PROJECT_ID}} #Required
           scope: ${{ secrets.ORG_ID}}
-          working-directory: ./
+          working-directory: ./sub-directory
 
       - name: Update deployment status
         uses: bobheadxi/deployments@v1

@@ -38,7 +38,7 @@ jobs:
           path: .next
 
   deploy-project:
-    needs: build
+    needs: build-project
     runs-on: ubuntu-latest
     permissions:
       deployments: write

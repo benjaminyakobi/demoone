@@ -63,16 +63,6 @@ jobs:
           scope: ${{ secrets.ORG_ID}}
           working-directory: ./
 
-      # - name: Update deployment status
-      #   uses: bobheadxi/deployments@v1
-      #   if: always()
-      #   with:
-      #     step: finish
-      #     token: ${{ secrets.GITHUB_TOKEN }}
-      #     status: ${{ job.status }}
-      #     env: ${{ steps.deployment.outputs.env }}
-      #     deployment_id: ${{ steps.deployment.outputs.deployment_id }}
-
   release-project:
     name: Release project to GitHub
     needs: deploy-project
@@ -96,6 +86,8 @@ jobs:
       - name: Get previous tag
         id: previoustag
         uses: "WyriHaximus/github-action-get-previous-tag@v1"
+        with:
+          fallback: 1.0.0 # Optional fallback tag to use when no tag can be found
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         # Docs: https://github.com/marketplace/actions/next-semvers
@@ -137,6 +129,8 @@ jobs:
       - name: Get previous tag
         id: previoustag
         uses: "WyriHaximus/github-action-get-previous-tag@v1"
+        with:
+          fallback: 1.0.0 # Optional fallback tag to use when no tag can be found
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         # Docs: https://github.com/marketplace/actions/next-semvers

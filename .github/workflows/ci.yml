@@ -62,7 +62,7 @@ jobs:
           vercel-org-id: ${{ secrets.ORG_ID}} #Required
           vercel-project-id: ${{ secrets.PROJECT_ID}} #Required
           scope: ${{ secrets.ORG_ID}}
-          working-directory: ./sub-directory
+          working-directory: ./
 
       - name: Update deployment status
         uses: bobheadxi/deployments@v1
